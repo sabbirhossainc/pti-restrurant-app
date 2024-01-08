@@ -24,7 +24,10 @@ export const ItemsGallery = () => {
       })
       .catch((er) => setIsError(er.message));
   };
-
+  const handleLoad = () =>{
+    callAxios();
+    console.log("clicked");
+  }
   useEffect(() => {
     callAxios();
   }, []);
@@ -77,7 +80,10 @@ export const ItemsGallery = () => {
               <h2 className="text-2xl font-serif tracking-tight text-gray-900">
                 Popular
               </h2>
-              <div className="absolute right-48 lg:right-40">
+          <div className="flex justify-center px-10">
+            <button onClick={handleLoad} className="text-lg relative inline-flex items-center bg-slate-100 rounded-md px-1 py-1 text-gray-900 ring-1 ring-inset ring-gray-300  focus:z-20 focus:outline-offset-0">Load data</button>
+          </div>
+              <div className="absolute right-48 lg:right-[28rem]">
                 <Link
                   href="/"
                   className="relative inline-flex items-center rounded-l-md px-1 py-1 text-gray-400 ring-1 ring-inset ring-gray-300  focus:z-20 focus:outline-offset-0"
@@ -145,7 +151,7 @@ export const ItemsGallery = () => {
               <h2 className="text-2xl font-serif tracking-tight text-gray-900">
                 Recommended
               </h2>
-              <div className="absolute right-48 lg:right-40">
+              <div className="absolute right-48 lg:right-[28rem]">
                 <Link
                   href="/"
                   className="relative inline-flex items-center rounded-l-md px-1 py-1 text-gray-400 ring-1 ring-inset ring-gray-300  focus:z-20 focus:outline-offset-0"
