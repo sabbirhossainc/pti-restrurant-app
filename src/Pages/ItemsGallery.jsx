@@ -11,13 +11,13 @@ import Next from "../components/Next";
 export const ItemsGallery = () => {
   const [items, setItems] = useState();
   const [isError, setIsError] = useState("");
-  // const baseURL =
-  //   "http://www.api.technicaltest.quadtheoryltd.com/api/Item?page=1&pageSize=10";
+  const baseURL =
+    "http://www.api.technicaltest.quadtheoryltd.com/api/Item?page=1&pageSize=10";
 
   const callAxios = async () => {
     axios
-      // .get(`${baseURL}`)
-      .get(import.meta.env.VITEVITE_API_URL)
+      .get(`${baseURL}`)
+      // .get(import.meta.env.VITEVITE_API_URL)
       .then((response) => {
         const getItems = response.data.Items;
         setItems(getItems);
