@@ -9,7 +9,7 @@ TO Run this Project
 
 ### `1 Clone this repocitory`
 ### `2 install dependencies`
-### `3 run command npm run dev`
+### `3 run command npm run preview`
 
 That's it!
 

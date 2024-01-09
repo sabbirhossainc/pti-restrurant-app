@@ -1,5 +1,6 @@
 import { FaInstagram, FaTwitter, FaGoogle } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
+import footerImg from "./assets/Image2.png";
 
 const Footer = () => {
   return (
@@ -22,7 +23,7 @@ const Footer = () => {
                     <div className="absolute inset-y-0 right-0 flex items-center">
                       <div className="relative items-center inline-flex rounded-xl bg-orange hover:bg-orange-light end-0 w-40 h-10 px-3 mr-2">
                         <button
-                        target="_blank"
+                          target="_blank"
                           className="text-white border-0 px-2 font-serif focus:outline-none rounded-xl text-base overflow-auto"
                           aria-hidden="true"
                         >
@@ -41,7 +42,8 @@ const Footer = () => {
               </p>
               <div className="container py-2 mx-auto flex items-center sm:flex-row flex-col">
                 <p>
-                  Copyright<span>©</span> Trip. <br className="lg:hidden md:block"/> All Right Reserved
+                  Copyright<span>©</span> Trip.{" "}
+                  <br className="lg:hidden md:block" /> All Right Reserved
                 </p>
                 <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start gap-2">
                   <a
@@ -72,7 +74,7 @@ const Footer = () => {
 
           <div className="col-start-4 col-end-7 row-span-4 md:w-auto lg:h-82 md:h-62 h-46 items-center lg:px-0 md:px-2">
             <img
-              src="./src/assets/Image2.png"
+              src={footerImg}
               className="object-scale-down object-center items-end  overflow-x-visible"
               alt="hero-image"
             />
@@ -86,7 +88,7 @@ const Footer = () => {
         <div className="flex flex-wrap h-auto justify-around bg-orange-light px-3 rounded-b-3xl gap-2">
           <div className="flex-1 h-auto w-full items-center">
             <div className="relative text-2xl font-bold text-center text-gray-100 pt-7 h-46 w-auto">
-            <form>
+              <form>
                 <div className="flex justify-around">
                   <div className="relative mt-2 rounded-md shadow-sm">
                     <input
@@ -99,7 +101,7 @@ const Footer = () => {
                     <div className="absolute inset-y-0 right-0 flex items-center">
                       <div className="relative items-center inline-flex rounded-xl bg-orange hover:bg-orange-light end-0 w-28 h-9 px-3 mr-2">
                         <button
-                        target="_blank"
+                          target="_blank"
                           className="text-white border-0 font-serif focus:outline-none rounded-xl text-sm overflow-auto"
                           aria-hidden="true"
                         >
@@ -120,34 +122,34 @@ const Footer = () => {
                 Copyright<span>©</span> Trip. All Right Reserved
               </p>
               <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start gap-2">
-                  <a
-                    target="_blank"
-                    href="#"
-                    className="size-10 inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-orange-light rounded-full"
-                  >
-                    <FaGoogle className="text-orange  w-8 h-8" />
-                  </a>
-                  <a
-                    target="_blank"
-                    href="#"
-                    className="size-10 inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-orange-light rounded-full"
-                  >
-                    <FaTwitter className="text-orange  w-8 h-8" />
-                  </a>
-                  <a
-                    target="_blank"
-                    href="#"
-                    className="size-10 inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-orange-light rounded-full"
-                  >
-                    <FaInstagram className="text-orange  w-8 h-8" />
-                  </a>
-                </span>
+                <a
+                  target="_blank"
+                  href="#"
+                  className="size-10 inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-orange-light rounded-full"
+                >
+                  <FaGoogle className="text-orange  w-8 h-8" />
+                </a>
+                <a
+                  target="_blank"
+                  href="#"
+                  className="size-10 inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-orange-light rounded-full"
+                >
+                  <FaTwitter className="text-orange  w-8 h-8" />
+                </a>
+                <a
+                  target="_blank"
+                  href="#"
+                  className="size-10 inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-orange-light rounded-full"
+                >
+                  <FaInstagram className="text-orange  w-8 h-8" />
+                </a>
+              </span>
             </div>
           </div>
 
           <div className="flex-wrap justify-around columns-1">
             <img
-              src="./src/assets/Image2.png"
+              src={footerImg}
               className="size-28  object-scale-down overflow-auto my-2"
               alt="hero-image"
             />

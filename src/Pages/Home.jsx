@@ -1,4 +1,5 @@
 import ItemsGallery from "./ItemsGallery";
+import heroImg from '../assets/Image1.png'
 
 
 const Home = () => {
@@ -44,7 +45,7 @@ const Home = () => {
 
           <div className="flex-wrap items-center h-46">
             <img
-              src="./src/assets/Image1.png"
+              src={heroImg}
               className="object-scale-down object-center items-end relative overflow-x-visible"
               alt="hero-image"
             />
