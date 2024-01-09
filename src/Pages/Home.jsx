@@ -1,6 +1,5 @@
 import ItemsGallery from "./ItemsGallery";
-import heroImg from '../assets/Image1.png'
-
+import heroImg from "../assets/Image1.png";
 
 const Home = () => {
   return (
@@ -20,7 +19,7 @@ const Home = () => {
 
           <div className="col-start-4 col-end-7 row-span-4 md:w-auto lg:h-82 md:h-62 h-46 items-center lg:px-0 md:px-2">
             <img
-              src="./src/assets/Image1.png"
+              src={heroImg}
               className=" object-scale-down object-center items-end relative overflow-x-visible"
               alt="hero-image"
             />
@@ -52,7 +51,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <ItemsGallery/>
+      <ItemsGallery />
     </>
   );
 };
