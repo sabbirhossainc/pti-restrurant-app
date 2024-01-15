@@ -11,13 +11,10 @@ import Next from "../components/Next";
 export const ItemsGallery = () => {
   const [items, setItems] = useState();
   const [isError, setIsError] = useState("");
-  const baseURL =
-    "http://www.api.technicaltest.quadtheoryltd.com/api/Item?page=1&pageSize=10";
 
   const callAxios = async () => {
     axios
-      .get(`${baseURL}`)
-      // .get(import.meta.env.VITEVITE_API_URL)
+      .get(import.meta.env.VITE_API_URL)
       .then((response) => {
         const getItems = response.data.Items;
         setItems(getItems);
@@ -25,10 +22,7 @@ export const ItemsGallery = () => {
       })
       .catch((er) => setIsError(er.message));
   };
-  // const handleLoad = () =>{
-  //   callAxios();
-  //   console.log("clicked");
-  // }
+
   useEffect(() => {
     callAxios();
   }, []);
@@ -81,9 +75,7 @@ export const ItemsGallery = () => {
               <h2 className="text-2xl font-serif tracking-tight text-gray-900">
                 Popular
               </h2>
-              {/* <div className="flex justify-center px-10">
-            <button onClick={handleLoad} className="text-lg relative inline-flex items-center bg-slate-100 rounded-md px-1 py-1 text-gray-900 ring-1 ring-inset ring-gray-300  focus:z-20 focus:outline-offset-0">Load data</button>
-          </div> */}
+
               <div className="absolute right-48 lg:right-[28rem]">
                 <Link
                   href="/"
