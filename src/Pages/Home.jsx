@@ -51,6 +51,8 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <h1>Vite is running in %MODE%</h1>
+      <p>Using data from %VITE_API_URL%</p>
       <ItemsGallery />
     </>
   );
