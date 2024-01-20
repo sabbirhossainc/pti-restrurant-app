@@ -1,12 +1,12 @@
-import { IoAddOutline } from "react-icons/io5";
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { useEffect, useState } from "react";
+import { IoAddOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
-import Previous from "../components/Previous";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 import Next from "../components/Next";
+import Previous from "../components/Previous";
 
 export const ItemsGallery = () => {
   const [items, setItems] = useState();
@@ -14,8 +14,8 @@ export const ItemsGallery = () => {
 
   const callAxios = async () => {
     axios
-      .get("http://www.api.technicaltest.quadtheoryltd.com/api/Item?page=1&pageSize=10")
-      // .get(import.meta.env.VITE_API_URL)
+      // .get("http://www.api.technicaltest.quadtheoryltd.com/api/Item?page=1&pageSize=10")
+      .get(import.meta.env.VITE_API_URL)
       .then((response) => {
         const getItems = response.data.Items;
         setItems(getItems);
@@ -146,7 +146,7 @@ export const ItemsGallery = () => {
                 Popular
               </h2>
 
-              <div className="absolute right-28 md:right-48 lg:right-[8rem] hover:bg-gray-50">
+              <div className="absolute right-28 md:right-48 lg:right-[8rem] rounded-l-md hover:bg-gray-50">
                 <Link
                   href="/"
                   className="relative inline-flex items-center rounded-l-md px-1 py-1 text-gray-400 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0"
