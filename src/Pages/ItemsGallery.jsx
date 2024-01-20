@@ -77,15 +77,15 @@ export const ItemsGallery = () => {
                 Popular
               </h2>
 
-              <div className="absolute right-48 lg:right-[28rem]">
+              <div className="absolute right-28 md:right-48 lg:right-[8rem] rounded-l-md hover:bg-gray-50">
                 <Link
                   href="/"
-                  className="relative inline-flex items-center rounded-l-md px-1 py-1 text-gray-400 ring-1 ring-inset ring-gray-300  focus:z-20 focus:outline-offset-0"
+                  className="relative inline-flex items-center rounded-l-md px-1 py-1 text-gray-400 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0"
                 >
-                  <span className="text-lg font-sans text-orange  hover:text-orange-light px-1">
+                  <span className="text-lg font-sans text-orange px-1">
                     Add More
                   </span>
-                  <IoAddOutline className="text-orange  hover:text-orange-light rounded-full w-5 h-5" />
+                  <IoAddOutline className="text-orange rounded-full w-5 h-5" />
                 </Link>
               </div>
             </div>
@@ -143,17 +143,18 @@ export const ItemsGallery = () => {
           <div className="inline-flex items-center font-sans gap-x-2">
             <div className="flex justify-start">
               <h2 className="text-2xl font-serif tracking-tight text-gray-900">
-                Recommended
+                Popular
               </h2>
-              <div className="absolute right-48 lg:right-[28rem]">
+
+              <div className="absolute right-28 md:right-48 lg:right-[8rem] hover:bg-gray-50">
                 <Link
                   href="/"
-                  className="relative inline-flex items-center rounded-l-md px-1 py-1 text-gray-400 ring-1 ring-inset ring-gray-300  focus:z-20 focus:outline-offset-0"
+                  className="relative inline-flex items-center rounded-l-md px-1 py-1 text-gray-400 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0"
                 >
-                  <span className="text-lg font-sans text-orange  hover:text-orange-light px-1">
+                  <span className="text-lg font-sans text-orange px-1">
                     Add More
                   </span>
-                  <IoAddOutline className="text-orange  hover:text-orange-light rounded-full w-5 h-5" />
+                  <IoAddOutline className="text-orange rounded-full w-5 h-5" />
                 </Link>
               </div>
             </div>
@@ -205,6 +206,7 @@ export const ItemsGallery = () => {
           </div>
         </div>
       </div>
+
     </>
   );
   // }

@@ -10,6 +10,7 @@ const Profile = () => {
           </strong>
           <br />
       <div>Profile</div>
+      <div>Profile</div>
         </div>
       </div>
     </>
