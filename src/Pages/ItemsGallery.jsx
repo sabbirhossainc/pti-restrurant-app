@@ -69,7 +69,7 @@ export const ItemsGallery = () => {
 
   
 
-  const {data , error } = useSWR('http://www.api.technicaltest.quadtheoryltd.com/api/Item?page=1&pageSize=10',fetcher)
+  const {data , error } = useSWR(import.meta.env.VITE_NAME,fetcher)
 
   if(error){
     return <p>{error.message}</p>
