@@ -13,9 +13,9 @@ export const ItemsGallery = () => {
   const [isError, setIsError] = useState("");
 
   const callAxios = async () => {
+    // .get("http://www.api.technicaltest.quadtheoryltd.com/api/Item?page=1&pageSize=10")
     axios
-      // .get("http://www.api.technicaltest.quadtheoryltd.com/api/Item?page=1&pageSize=10")
-      .get(import.meta.env.VITE_API_URL)
+      .get(import.meta.env.VITE_URL)
       .then((response) => {
         const getItems = response.data.Items;
         setItems(getItems);
