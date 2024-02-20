@@ -5,29 +5,25 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+import useSWR from "swr";
 import Next from "../components/Next";
 import Previous from "../components/Previous";
 
+const fetcher = url => axios.get(url).then(res => res.data)
 export const ItemsGallery = () => {
-  const [items, setItems] = useState();
-  const [isError, setIsError] = useState("");
-
-  const callAxios = async () => {
-    const fetchUrl = "http://www.api.technicaltest.quadtheoryltd.com/api/Item?page=1&pageSize=10"
+  const callAxios = fetchUrl => {
+    // const fetchUrl = "http://www.api.technicaltest.quadtheoryltd.com/api/Item?page=1&pageSize=10"
     // .get(import.meta.env.VITE_URL)
     axios
       .get(fetchUrl)
       .then((response) => {
-        const getItems = response.data.Items;
-        setItems(getItems);
-        console.log(getItems);
+        response.data.Items
+        // const getItems = response.data.Items;
+        // setItems(getItems);
+        // console.log(getItems);
       })
-      .catch((er) => setIsError(er.message));
+      // .catch((er) => setIsError(er.message));
   };
-
-  useEffect(() => {
-    callAxios();
-  }, []);
 
   const settings = {
     dots: true,
@@ -68,6 +64,26 @@ export const ItemsGallery = () => {
     prevArrow: <Previous />,
   };
 
+  // const [items, setItems] = useState();
+  const [isError, setIsError] = useState("Error loading data");
+
+  
+
+  const {data , error } = useSWR('http://www.api.technicaltest.quadtheoryltd.com/api/Item?page=1&pageSize=10',fetcher)
+
+  if(error){
+    return <p>{error.message}</p>
+  }
+
+  if(!data){
+    return <p>Loading....</p>
+  }
+  // useEffect(() => {
+  //   callAxios();
+  // }, []);
+
+
+
   return (
     <>
       <div className="bg-transparent">
@@ -94,8 +110,8 @@ export const ItemsGallery = () => {
           <div className="gap-x-6 gap-y-10 ">
             <Slider {...settings}>
               {isError !== "" && <h2>{isError}</h2>}
-              {items &&
-                items
+              {data &&
+                data.Items
                   .filter((product) => {
                     return product.IsRecommended == true ? (
                       product
@@ -163,8 +179,8 @@ export const ItemsGallery = () => {
           <div className="gap-x-6 gap-y-10 ">
             <Slider {...settings}>
               {isError !== "" && <h2>{isError}</h2>}
-              {items &&
-                items
+              {data &&
+                data.Items
                   .filter((product) => {
                     return product.IsRecommended == true ? (
                       product
