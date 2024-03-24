@@ -111,13 +111,13 @@ export const ItemsGallery = () => {
               {isError !== "" && <h2>{isError}</h2>}
               {items &&
                 items
-                  .filter((product) => {
-                    return product.IsRecommended == true ? (
-                      product
-                    ) : (
-                      <h1 className="font-bold">No data!</h1>
-                    );
-                  })
+                  // .filter((product) => {
+                  //   return product.IsRecommended == true ? (
+                  //     product
+                  //   ) : (
+                  //     <h1 className="font-bold">No data!</h1>
+                  //   );
+                  // })
                   .map((product) => {
                     return (
                       <div key={product.Id} className="group relative">
@@ -180,13 +180,13 @@ export const ItemsGallery = () => {
               {isError !== "" && <h2>{isError}</h2>}
               {items &&
                 items
-                  .filter((product) => {
-                    return product.IsRecommended == true ? (
-                      product
-                    ) : (
-                      <h1 className="font-bold">No data!</h1>
-                    );
-                  })
+                  // .filter((product) => {
+                  //   return product.IsRecommended == true ? (
+                  //     product
+                  //   ) : (
+                  //     <h1 className="font-bold">No data!</h1>
+                  //   );
+                  // })
                   .map((product) => {
                     return (
                       <div key={product.Id} className="group relative">
