@@ -5,24 +5,23 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import useSWR from "swr";
+// import useSWR from "swr";
 import Next from "../components/Next";
 import Previous from "../components/Previous";
 
-const fetcher = url => axios.get(url).then(res => res.data)
+// const fetcher = url => axios.get(url).then(res => res.data)
 export const ItemsGallery = () => {
-  const callAxios = fetchUrl => {
-    // const fetchUrl = "http://www.api.technicaltest.quadtheoryltd.com/api/Item?page=1&pageSize=10"
+  const callAxios = async () => {
+    const fetchUrl = "http://www.api.technicaltest.quadtheoryltd.com/api/Item?page=1&pageSize=10"
     // .get(import.meta.env.VITE_URL)
     axios
       .get(fetchUrl)
       .then((response) => {
-        response.data.Items
-        // const getItems = response.data.Items;
-        // setItems(getItems);
-        // console.log(getItems);
+        const getItems = response.data.Items;
+        setItems(getItems);
+        console.log(getItems);
       })
-      // .catch((er) => setIsError(er.message));
+      .catch((er) => setIsError(er.message));
   };
 
   const settings = {
@@ -64,23 +63,23 @@ export const ItemsGallery = () => {
     prevArrow: <Previous />,
   };
 
-  // const [items, setItems] = useState();
+  const [items, setItems] = useState();
   const [isError, setIsError] = useState("Error loading data");
 
   
 
-  const {data , error } = useSWR(import.meta.env.VITE_NAME,fetcher)
+  // const {data , error } = useSWR(import.meta.env.VITE_NAME,fetcher)
 
-  if(error){
-    return <p>{error.message}</p>
-  }
+  // if(error){
+  //   return <p>{error.message}</p>
+  // }
 
-  if(!data){
-    return <p>Loading....</p>
-  }
-  // useEffect(() => {
-  //   callAxios();
-  // }, []);
+  // if(!data){
+  //   return <p>Loading....</p>
+  // }
+  useEffect(() => {
+    callAxios();
+  }, []);
 
 
 
@@ -94,7 +93,7 @@ export const ItemsGallery = () => {
                 Popular
               </h2>
 
-              <div className="absolute right-28 md:right-48 lg:right-[8rem] rounded-l-md hover:bg-gray-50">
+              <div className="absolute right-28 md:right-48 xl:right-[28rem] rounded-l-md hover:bg-gray-50">
                 <Link
                   href="/"
                   className="relative inline-flex items-center rounded-l-md px-1 py-1 text-gray-400 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0"
@@ -110,8 +109,8 @@ export const ItemsGallery = () => {
           <div className="gap-x-6 gap-y-10 ">
             <Slider {...settings}>
               {isError !== "" && <h2>{isError}</h2>}
-              {data &&
-                data.Items
+              {items &&
+                items
                   .filter((product) => {
                     return product.IsRecommended == true ? (
                       product
@@ -163,7 +162,7 @@ export const ItemsGallery = () => {
                 Popular
               </h2>
 
-              <div className="absolute right-28 md:right-48 lg:right-[8rem] rounded-l-md hover:bg-gray-50">
+              <div className="absolute right-28 md:right-48 xl:right-[28rem] rounded-l-md hover:bg-gray-50">
                 <Link
                   href="/"
                   className="relative inline-flex items-center rounded-l-md px-1 py-1 text-gray-400 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0"
@@ -179,8 +178,8 @@ export const ItemsGallery = () => {
           <div className="gap-x-6 gap-y-10 ">
             <Slider {...settings}>
               {isError !== "" && <h2>{isError}</h2>}
-              {data &&
-                data.Items
+              {items &&
+                items
                   .filter((product) => {
                     return product.IsRecommended == true ? (
                       product
@@ -226,7 +225,6 @@ export const ItemsGallery = () => {
 
     </>
   );
-  // }
 };
 
 export default ItemsGallery;
