@@ -14,7 +14,7 @@ const Footer = () => {
                 <div className="flex justify-start">
                   <div className="relative mt-2 rounded-md shadow-sm">
                     <input
-                      type="search"
+                      type="email"
                       name="search"
                       id="search"
                       className="block w-96 h-auto rounded-xl border-0 py-3 px-7 pr-20 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-orange outline-none sm:text-sm sm:leading-6"
@@ -23,7 +23,6 @@ const Footer = () => {
                     <div className="absolute inset-y-0 right-0 flex items-center">
                       <div className="relative items-center inline-flex rounded-xl bg-orange hover:bg-orange-light end-0 w-40 h-10 px-3 mr-2">
                         <button
-                          target="_blank"
                           className="text-white border-0 px-2 font-serif focus:outline-none rounded-xl text-base overflow-auto"
                           aria-hidden="true"
                         >
@@ -92,7 +91,7 @@ const Footer = () => {
                 <div className="flex justify-around">
                   <div className="relative mt-2 rounded-md shadow-sm">
                     <input
-                      type="search"
+                      type="email"
                       name="search"
                       id="search"
                       className="block w-80 h-auto rounded-xl border-0 py-3 px-4 pr-20 text-gray-900 font-bold text-sm focus:ring-2 focus:ring-orange outline-none"
@@ -101,7 +100,6 @@ const Footer = () => {
                     <div className="absolute inset-y-0 right-0 flex items-center">
                       <div className="relative items-center inline-flex rounded-xl bg-orange hover:bg-orange-light end-0 w-28 h-9 px-3 mr-2">
                         <button
-                          target="_blank"
                           className="text-white border-0 font-serif focus:outline-none rounded-xl text-sm overflow-auto"
                           aria-hidden="true"
                         >

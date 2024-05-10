@@ -1,12 +1,12 @@
 import { LuUser2 } from "react-icons/lu";
-import { PiCaretDownBold } from "react-icons/pi";
+import { PiCaretDownBold, PiListBold} from "react-icons/pi";
 import { IoSearch } from "react-icons/io5";
-import { useState} from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation, Outlet } from "react-router-dom";
+import Footer from "./Footer";
 
 export default function Navcom() {
   const [collapsed, setCollapsed] = useState(true);
-
 
   let { pathname } = useLocation();
   let subpage = pathname.split("/")?.[1];
@@ -22,6 +22,15 @@ export default function Navcom() {
     }
     return classes;
   }
+
+  useEffect(() => {
+    const dropdownContainer = document.querySelector("#dropdownContainer");
+    window.addEventListener("click", (e) => {
+      if (!dropdownContainer.contains(e.target)) {
+        setCollapsed(true);
+      }
+    });
+  }, []);
 
   return (
     <>
@@ -46,11 +55,11 @@ export default function Navcom() {
                   role="combobox"
                   aria-label="Search components"
                   className="min-w-0 flex-auto md:w-96 rounded-lg border-0 bg-gray-50 px-8 py-2 text-gray-900 shadow-sm focus:ring-2 focus:ring-orange-light outline-none text-xs font-semibold sm:text-sm sm:leading-6"
-                  placeholder=" Search Audiobook"
+                  placeholder=" Search Favorite Food"
                 />
               </div>
             </form>
-            <menu className="relative inline-block text-left">
+            <menu className="relative inline-block text-left" id="dropdownContainer">
               <div>
                 <button
                   type="button"
@@ -61,8 +70,11 @@ export default function Navcom() {
                   onClick={() => setCollapsed((prev) => !prev)}
                 >
                   <div className="inline-flex items-center font-sans">
-                    Menu
-                    <PiCaretDownBold className="text-orange ml-12 hover:text-orange-light rounded-full w-7 h-7" />
+                    <p className="hidden md:block">
+                      Menu
+                      </p>
+                    <PiCaretDownBold className="text-orange ml-12 hover:text-orange-light rounded-full w-7 h-7 hidden md:block" />
+                    <PiListBold className="text-orange hover:text-orange-light rounded-full w-7 h-7 md:hidden" />
                   </div>
                 </button>
               </div>
@@ -72,7 +84,8 @@ export default function Navcom() {
                   collapsed
                     ? "hidden transition-transform ease-in-out delay-150"
                     : "md:block transition-transform ease-in-out delay-150"
-                } absolute left-0 z-10 mt-2 w-36 origin-top-right rounded-lg bg-gray-50 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
+                } absolute right-0 md:left-0 z-10 mt-2 w-36 origin-top-right rounded-lg bg-gray-50 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
+                
                 role="menu"
                 aria-orientation="vertical"
                 aria-labelledby="menu-button"
@@ -138,13 +151,15 @@ export default function Navcom() {
               </div>
             </menu>
           </nav>
-            <Link to={`/profile`}>
-          <button className="size-12 inline-flex items-center bg-orange border-0 py-1 px-3 focus:outline-none hover:bg-orange-light rounded-full">
-            <LuUser2 className="text-gray-200 rounded-full w-8 h-8" />
-          </button>
-            </Link>
+          <Link to={`/profile`}>
+            <button className="size-12 inline-flex items-center bg-orange border-0 py-1 px-3 focus:outline-none hover:bg-orange-light rounded-full">
+              <LuUser2 className="text-gray-200 rounded-full w-8 h-8" />
+            </button>
+          </Link>
         </div>
       </header>
+      <Outlet />
+      <Footer />
     </>
   );
 }

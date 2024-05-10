@@ -1,12 +1,15 @@
 import { useRouteError } from "react-router-dom";
 
-export const ErrorPage = () => {
+const ErrorPage = () => {
   const error = useRouteError();
   console.error(error);
 
   return (
     <>
-      <div id="error-page" className="flex justify-center text-center text-orange bg-gray-50 py-80">
+      <div
+        id="error-page"
+        className="flex justify-center text-center text-orange bg-gray-50 py-80"
+      >
         <h1>Oops!</h1>
         <p>Sorry, an unexpected error has occurred.</p>
         <p>
@@ -16,3 +19,5 @@ export const ErrorPage = () => {
     </>
   );
 };
+
+export default ErrorPage;

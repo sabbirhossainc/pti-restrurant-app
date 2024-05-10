@@ -5,14 +5,13 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-// import useSWR from "swr";
 import Next from "../components/Next";
 import Previous from "../components/Previous";
 
-// const fetcher = url => axios.get(url).then(res => res.data)
 export const ItemsGallery = () => {
   const callAxios = async () => {
-    const fetchUrl = "http://www.api.technicaltest.quadtheoryltd.com/api/Item?page=1&pageSize=10"
+    const fetchUrl =
+      "http://www.api.technicaltest.quadtheoryltd.com/api/Item?page=1&pageSize=10";
     // .get(import.meta.env.VITE_URL)
     axios
       .get(fetchUrl)
@@ -21,7 +20,10 @@ export const ItemsGallery = () => {
         setItems(getItems);
         console.log(getItems);
       })
-      .catch((er) => setIsError(er.message));
+      .catch((er) => {
+        console.log(er);
+        setIsError(er.message);
+      });
   };
 
   const settings = {
@@ -59,29 +61,18 @@ export const ItemsGallery = () => {
         },
       },
     ],
-    nextArrow: <Next />,
+    nextArrow: <Next/>,
     prevArrow: <Previous />,
   };
 
   const [items, setItems] = useState();
-  const [isError, setIsError] = useState("Error loading data");
+  const [isError, setIsError] = useState();
 
-  
+  // import.meta.env.VITE_NAME
 
-  // const {data , error } = useSWR(import.meta.env.VITE_NAME,fetcher)
-
-  // if(error){
-  //   return <p>{error.message}</p>
-  // }
-
-  // if(!data){
-  //   return <p>Loading....</p>
-  // }
   useEffect(() => {
     callAxios();
   }, []);
-
-
 
   return (
     <>
@@ -89,36 +80,30 @@ export const ItemsGallery = () => {
         <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
           <div className="inline-flex items-center font-sans gap-x-2">
             <div className="flex justify-start">
-              <h2 className="text-2xl font-serif tracking-tight text-gray-900">
+              <h2 className="text-2xl font-bold tracking-tight text-gray-900">
                 Popular
               </h2>
 
               <div className="absolute right-28 md:right-48 xl:right-[28rem] rounded-l-md hover:bg-gray-50">
-                <Link
-                  href="/"
-                  className="relative inline-flex items-center rounded-l-md px-1 py-1 text-gray-400 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0"
-                >
+                <div className="relative inline-flex items-center rounded-l-md px-1 py-1 text-gray-400 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0 cursor-pointer">
                   <span className="text-lg font-sans text-orange px-1">
                     Add More
                   </span>
                   <IoAddOutline className="text-orange rounded-full w-5 h-5" />
-                </Link>
+                </div>
               </div>
             </div>
           </div>
           <div className="gap-x-6 gap-y-10 ">
             <Slider {...settings}>
-              {isError !== "" && <h2>{isError}</h2>}
-              {items &&
+              {isError ? (
+                <h2>{isError}</h2>
+              ) : (
                 items
-                  // .filter((product) => {
-                  //   return product.IsRecommended == true ? (
-                  //     product
-                  //   ) : (
-                  //     <h1 className="font-bold">No data!</h1>
-                  //   );
-                  // })
-                  .map((product) => {
+                  ?.filter((product) => {
+                    return product.IsPopular === true;
+                  })
+                  ?.map((product) => {
                     return (
                       <div key={product.Id} className="group relative">
                         <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
@@ -148,46 +133,40 @@ export const ItemsGallery = () => {
                         </div>
                       </div>
                     );
-                  })}
+                  })
+              )}
             </Slider>
           </div>
         </div>
       </div>
-
       <div className="bg-transparent">
         <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
           <div className="inline-flex items-center font-sans gap-x-2">
             <div className="flex justify-start">
-              <h2 className="text-2xl font-serif tracking-tight text-gray-900">
-                Popular
+              <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+                Recommended
               </h2>
 
               <div className="absolute right-28 md:right-48 xl:right-[28rem] rounded-l-md hover:bg-gray-50">
-                <Link
-                  href="/"
-                  className="relative inline-flex items-center rounded-l-md px-1 py-1 text-gray-400 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0"
-                >
+                <div className="relative inline-flex items-center rounded-l-md px-1 py-1 text-gray-400 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0 cursor-pointer">
                   <span className="text-lg font-sans text-orange px-1">
                     Add More
                   </span>
                   <IoAddOutline className="text-orange rounded-full w-5 h-5" />
-                </Link>
+                </div>
               </div>
             </div>
           </div>
           <div className="gap-x-6 gap-y-10 ">
             <Slider {...settings}>
-              {isError !== "" && <h2>{isError}</h2>}
-              {items &&
+              {isError ? (
+                <h2>{isError}</h2>
+              ) : (
                 items
-                  // .filter((product) => {
-                  //   return product.IsRecommended == true ? (
-                  //     product
-                  //   ) : (
-                  //     <h1 className="font-bold">No data!</h1>
-                  //   );
-                  // })
-                  .map((product) => {
+                  ?.filter((product) => {
+                    return product.IsRecommended === true;
+                  })
+                  ?.map((product) => {
                     return (
                       <div key={product.Id} className="group relative">
                         <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
@@ -217,12 +196,12 @@ export const ItemsGallery = () => {
                         </div>
                       </div>
                     );
-                  })}
+                  })
+              )}
             </Slider>
           </div>
         </div>
       </div>
-
     </>
   );
 };

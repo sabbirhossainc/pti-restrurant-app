@@ -10,8 +10,10 @@ const Home = () => {
           <div className="col-start-1 col-end-3  row-span-4 h-auto w-full">
             <h1 className="relative text-2xl lg:text-5xl md:text-4xl font-bold text-gray-100 md:py-5 lg:py-3 h-46 md:h-28 w-[25rem] lg:w-[30rem]">
               Deliver Food <br className="sm:block lg:hidden" /> To Your
-              <br className="md:hidden block lg:block" /> Door Step|
+              <br className="md:hidden block lg:block" /> Door Step
             </h1>
+            <br />
+            <hr />
             <p className="relative lg:text-xl md:text-base font-serif text-gray-200 py-4 md:py-2 lg:py-6 h-26 w-[30rem]">
               Authentic Food | Quick Service,
               <br className="block md:hidden lg:hidden" /> Fast Delivery
@@ -33,10 +35,11 @@ const Home = () => {
       <div className="sm:block md:hidden lg:hidden flex place-content-center place-items-center mx-auto max-w-7xl px-4 py-10 gap-2">
         <div className="flex flex-wrap h-auto items-center bg-orange-light px-3 rounded-3xl gap-2">
           <div className="flex-1 h-auto w-full items-center">
-            <h1 className="relative text-2xl font-bold text-center text-gray-100 pt-7 h-46 w-auto">
+            <h1 className="relative text-2xl font-bold text-center text-gray-100 pt-7 pb-2 h-46 w-auto">
               Deliver Food To Your
-              <br className="md:hidden block lg:block" /> Door Step |
+              <br className="md:hidden block lg:block" /> Door Step 
             </h1>
+            <hr />
             <p className="relative text-base text-center font-serif text-gray-200 pt-2 h-18 w-full">
               Authentic Food | Quick Service,
               <br className="block md:hidden lg:hidden" /> Fast Delivery
