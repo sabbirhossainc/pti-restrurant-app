@@ -11,8 +11,8 @@ import Previous from "../components/Previous";
 export const ItemsGallery = () => {
   const callAxios = async () => {
     const fetchUrl =
-      // "https://my-json-server.typicode.com/sabbirhossainc/server/Items?_limit=8";
-    import.meta.env.VITE_URL
+      "https://my-json-server.typicode.com/sabbirhossainc/server/Items?_limit=8";
+    // import.meta.env.VITE_URL
     axios
       .get(fetchUrl)
       .then((response) => {
