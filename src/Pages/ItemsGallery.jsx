@@ -11,12 +11,12 @@ import Previous from "../components/Previous";
 export const ItemsGallery = () => {
   const callAxios = async () => {
     const fetchUrl =
-      "http://www.api.technicaltest.quadtheoryltd.com/api/Item?page=1&pageSize=10";
-    // .get(import.meta.env.VITE_URL)
+      // "https://my-json-server.typicode.com/sabbirhossainc/server/Items?_limit=8";
+    import.meta.env.VITE_URL
     axios
       .get(fetchUrl)
       .then((response) => {
-        const getItems = response.data.Items;
+        const getItems = response.data;
         setItems(getItems);
         console.log(getItems);
       })
@@ -68,8 +68,6 @@ export const ItemsGallery = () => {
   const [items, setItems] = useState();
   const [isError, setIsError] = useState();
 
-  // import.meta.env.VITE_NAME
-
   useEffect(() => {
     callAxios();
   }, []);
@@ -108,7 +106,7 @@ export const ItemsGallery = () => {
                       <div key={product.Id} className="group relative">
                         <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                           <img
-                            src={product.ImageUrl}
+                            src={`/${product.ImageUrl}`}
                             alt={product.Name}
                             className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                           />
@@ -171,7 +169,7 @@ export const ItemsGallery = () => {
                       <div key={product.Id} className="group relative">
                         <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                           <img
-                            src={product.ImageUrl}
+                            src={`/${product.ImageUrl}`}
                             alt={product.Name}
                             className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                           />
